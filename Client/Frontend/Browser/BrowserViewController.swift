@@ -12,6 +12,7 @@ import SnapKit
 import XCGLogger
 import Alamofire
 import Account
+import ReadingList
 
 private let log = Logger.browserLogger
 
@@ -720,6 +721,10 @@ class BrowserViewController: UIViewController {
             self.toolbar?.updateBookmarkStatus(true)
             self.urlBar.updateBookmarkStatus(true)
         }
+    }
+
+    func addToReadingList(url: String, title: String) -> ReadingListClientRecord? {
+        return profile.readingList?.createRecordWithURL(url, title: title, addedBy: UIDevice.currentDevice().name).successValue
     }
 
     private func animateBookmarkStar() {
