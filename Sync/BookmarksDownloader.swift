@@ -61,7 +61,7 @@ private func itemFromRecord(record: Record<BookmarkBasePayload>) -> BookmarkMirr
     return itemable.toMirrorItem(record.modified)
 }
 
-public class MirroringBookmarksSynchronizer: TimestampedSingleCollectionSynchronizer, Synchronizer {
+public class BufferingBookmarksSynchronizer: TimestampedSingleCollectionSynchronizer, Synchronizer {
     public required init(scratchpad: Scratchpad, delegate: SyncDelegate, basePrefs: Prefs) {
         super.init(scratchpad: scratchpad, delegate: delegate, basePrefs: basePrefs, collection: "bookmarks")
     }
